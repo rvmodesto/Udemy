@@ -5,21 +5,21 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nelioalves.cursomc.domain.Cliente;
-import com.nelioalves.cursomc.repositories.ClienteRepository;
+import com.nelioalves.cursomc.domain.Pedido;
+import com.nelioalves.cursomc.repositories.PedidoRepository;
 import com.nelioalves.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class ClienteService {
+public class PedidoService {
 
 	//ctrl +f == replace words
 	//autowired = injeção de dependencia
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private PedidoRepository pedidoRepository;
 	
-	public Cliente findById(Integer id) {
-		Optional<Cliente> obj = clienteRepository.findById(id);
+	public Pedido findById(Integer id) {
+		Optional<Pedido> obj = pedidoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-					"Objeto não encontrado!! Id: " + id + " , Tipo: " + Cliente.class.getName(), null));
+					"Objeto não encontrado!! Id: " + id + " , Tipo: " + Pedido.class.getName(), null));
 	}
 }
